@@ -1,18 +1,43 @@
 const choices = document.getElementById("choices-container");
 let choice;
+<<<<<<< HEAD
 
 choices.addEventListener("click", (e) => {
     choice = e.target.alt;
+=======
+const playersScore = document.getElementById("player-score");
+const computersScore = document.getElementById("computer-score");
+const playersPic = document.getElementById("player-choice");
+const computerPic = document.getElementById("computer-choice");
+
+choices.addEventListener("click", (e) => {
+    choice = e.target.alt;
+    playersPic.children[0].src = e.target.src;
+    playersPic.children[0].alt = e.target.alt;
+>>>>>>> rps-ui
     play(choice);
 })
 
 function getComputerChoice(){
     const computerChoice = (Math.floor(Math.random() * 3)) + 1;
     if(computerChoice === 1){
+<<<<<<< HEAD
         return "rock";
     }else if (computerChoice === 2){
         return "paper";
     }else{
+=======
+        computerPic.children[0].src = "https://static.vecteezy.com/system/resources/previews/050/740/253/large_2x/cute-smiling-rock-cartoon-illustration-vector.jpg"
+        computerPic.children[0].alt = "rock"
+        return "rock";
+    }else if (computerChoice === 2){
+        computerPic.children[0].src = "https://img.freepik.com/premium-vector/hand-drawn-paper-cartoon-illustration_23-2151474661.jpg?w=2000";
+        computerPic.children[0].alt = "paper";
+        return "paper";
+    }else{
+        computerPic.children[0].src = "https://img.freepik.com/premium-vector/hand-drawn-scissors-cartoon-illustration_23-2151388093.jpg?w=2000";
+        computerPic.children[0].alt = "scissor";
+>>>>>>> rps-ui
         return "scissors";
     }
 }
@@ -75,13 +100,25 @@ function play(choice){
     if(rounds === 5){
         if (computerScore > playerScore){
             alert(`Computer won!`)
+            rounds = 0;
+            playerScore = 0;
+            computerScore = 0;
+            playersScore.textContent = playerScore;
+            computersScore.textContent = computerScore;
             return;
         }else{
             alert('Player won the game!')
+            rounds = 0;
+            playerScore = 0;
+            computerScore = 0;
+            playersScore.textContent = playerScore;
+            computersScore.textContent = computerScore;
             return;
         }
     }else{
         round(choice);
+        playersScore.textContent = playerScore;
+        computersScore.textContent = computerScore;
         rounds++;
         return;
     }    
