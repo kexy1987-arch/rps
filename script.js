@@ -87,9 +87,19 @@ function play(choice){
     if(rounds === 5){
         if (computerScore > playerScore){
             alert(`Computer won!`)
+            rounds = 0;
+            playerScore = 0;
+            computerScore = 0;
+            playersScore.textContent = playerScore;
+            computersScore.textContent = computerScore;
             return;
         }else{
             alert('Player won the game!')
+            rounds = 0;
+            playerScore = 0;
+            computerScore = 0;
+            playersScore.textContent = playerScore;
+            computersScore.textContent = computerScore;
             return;
         }
     }else{
